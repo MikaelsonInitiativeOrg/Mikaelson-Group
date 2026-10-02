@@ -301,5 +301,6 @@ export const NAV = [
   { href: "/frameworks", label: "Frameworks" },
   { href: "/initiative", label: "The Initiative" },
   { href: "/initiative#archive", label: "Research" },
+  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Correspondence" },
 ] as const;

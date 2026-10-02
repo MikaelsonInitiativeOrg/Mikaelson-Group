@@ -41,6 +41,7 @@ export const ROUTES = [
   { path: "/", priority: 1 },
   { path: "/frameworks", priority: 0.8 },
   { path: "/initiative", priority: 0.8 },
+  { path: "/blog", priority: 0.7 },
   { path: "/contact", priority: 0.5 },
 ] as const;
 

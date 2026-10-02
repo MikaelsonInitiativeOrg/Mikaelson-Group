@@ -23,6 +23,11 @@ const SIZES = {
   lg: "px-8 py-4 text-[16px]",
 } as const;
 
+/** Class string for the club buttons, for use on a real <button>. */
+export function buttonClass(variant: keyof typeof VARIANTS = "primary", size: keyof typeof SIZES = "md") {
+  return `${BASE} ${VARIANTS[variant]} ${SIZES[size]} disabled:pointer-events-none disabled:opacity-50`;
+}
+
 export function ArrowIcon({ className = "" }: { className?: string }) {
   return (
     <svg
@@ -61,7 +66,7 @@ export function Button({
   external?: boolean;
   className?: string;
 }) {
-  const cls = `${BASE} ${VARIANTS[variant]} ${SIZES[size]} ${className}`;
+  const cls = `${buttonClass(variant, size)} ${className}`;
   const content = (
     <>
       {children}

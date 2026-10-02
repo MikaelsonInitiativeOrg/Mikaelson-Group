@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PostRows } from "@/components/blog/PostList";
 import { EngineDiagram } from "@/components/home/EngineDiagram";
 import { Button } from "@/components/ui/Button";
 import { Register } from "@/components/ui/Register";
 import { SectionHead } from "@/components/ui/SectionHead";
+import { getPublishedPosts } from "@/lib/blog";
 import { DISPATCHES, FRAMEWORKS, MONOGRAPHS, ORG, RESEARCH_SERIES } from "@/lib/content";
 import { OG_BASE, SITE_DESCRIPTION, organizationJsonLd } from "@/lib/site";
+
+// Rebuilt at most every 5 minutes (for the latest posts), and when the Studio saves.
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -21,7 +26,9 @@ const THESES = [
 
 const ROMAN = ["I", "II", "III", "IV"];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const latestPosts = await getPublishedPosts(3);
+
   return (
     <>
       <script
@@ -221,6 +228,25 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        {/* § 05 From the blog (only once something is published) */}
+        {latestPosts.length > 0 && (
+          <section aria-labelledby="from-the-blog">
+            <SectionHead
+              number="05"
+              label="Blog"
+              id="from-the-blog"
+              title="From the blog."
+              lede="Recent essays, notes and dispatches from both engines."
+            />
+            <div className="mt-10 md:ml-[25%]">
+              <PostRows posts={latestPosts} />
+              <Button href="/blog" variant="ghost" arrow className="mt-8">
+                All posts
+              </Button>
+            </div>
+          </section>
+        )}
       </div>
     </>
   );

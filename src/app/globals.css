@@ -142,6 +142,98 @@
     }
   }
 
+  /* Blog post bodies (src/lib/article.tsx). */
+  .article {
+    font-size: 1.125rem;
+    line-height: 1.8;
+  }
+  .article > * + * {
+    margin-top: 1.4em;
+  }
+  .article > p:first-child {
+    font-size: 1.25rem;
+    color: var(--color-heading);
+  }
+  .article h2,
+  .article h3 {
+    margin-top: 2.2em;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .article h2 {
+    font-size: 1.875rem;
+  }
+  .article h3 {
+    font-size: 1.375rem;
+  }
+  .article h2 + *,
+  .article h3 + * {
+    margin-top: 0.8em;
+  }
+  .article a {
+    color: var(--color-heading);
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-underline-offset: 3px;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .article a:hover {
+      color: var(--color-accent);
+    }
+  }
+  .article strong {
+    color: var(--color-heading);
+    font-weight: 600;
+  }
+  .article code {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-rule);
+    padding: 0.1em 0.35em;
+  }
+  .article blockquote {
+    border-left: 2px solid var(--color-accent);
+    padding-left: 1.25rem;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.375rem;
+    line-height: 1.5;
+    color: var(--color-heading);
+  }
+  .article ul,
+  .article ol {
+    padding-left: 1.4em;
+  }
+  .article ul {
+    list-style: square;
+  }
+  .article ol {
+    list-style: decimal;
+  }
+  .article li + li {
+    margin-top: 0.5em;
+  }
+  .article li::marker {
+    color: var(--color-accent);
+  }
+  .article hr {
+    border: 0;
+    border-top: 1px solid var(--color-rule);
+    margin-block: 2.5em;
+  }
+  .article figure img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--color-rule);
+  }
+  .article figcaption {
+    margin-top: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-faint);
+  }
+
   /* Press feedback for everything pressable. */
   .press {
     transition:

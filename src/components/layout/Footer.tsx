@@ -8,6 +8,7 @@ const COLUMNS = [
     links: [
       { href: "/", label: "Thesis" },
       { href: "/frameworks", label: "The four frameworks" },
+      { href: "/blog", label: "Blog" },
       { href: "/contact", label: "Correspondence" },
     ],
   },

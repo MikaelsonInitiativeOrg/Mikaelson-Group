@@ -121,3 +121,31 @@ export interface RecordEntry {
   /** True when the value is awaiting confirmation and must not be relied on. */
   pending?: boolean;
 }
+
+/** Publication state of a blog post. Drafts are never served publicly. */
+export type PostStatus = "draft" | "published";
+
+/** A blog post, written in the Studio and stored in Neon. */
+export interface BlogPost {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  category: string;
+  /** Public Vercel Blob URL (or any https URL). */
+  coverImage: string | null;
+  coverAlt: string | null;
+  authorName: string;
+  authorRole: string | null;
+  /** Markdown-style text; see src/lib/article.tsx for the supported syntax. */
+  body: string;
+  status: PostStatus;
+  /** ISO timestamp; set the first time the post is published. */
+  publishedAt: string | null;
+  updatedAt: string;
+  seoTitle: string | null;
+  seoDescription: string | null;
+}
+
+/** The fields an editor can send when creating or updating a post. */
+export type BlogPostInput = Omit<BlogPost, "id" | "publishedAt" | "updatedAt">;
