@@ -9,7 +9,7 @@ type OpenGraphBase = {
 };
 
 /** Canonical origin. Every absolute URL (sitemap, canonicals, JSON-LD) is built from it. */
-export const SITE_URL = "https://mikaelsongroup.com";
+export const SITE_URL = "https://www.mikaelsongroup.com";
 
 export const SITE_DESCRIPTION =
   "Mikaelson Group articulates how human capability is developed: epistemic agency, intellectual infrastructure, applied human capability and generative capacity. Its non-profit wing is the Mikaelson Initiative.";
