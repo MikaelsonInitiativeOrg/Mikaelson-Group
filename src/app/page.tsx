@@ -118,7 +118,7 @@ export default function HomePage() {
                 carries the work into the public interest, where it can be tested.
               </p>
               <ul className="mt-6 space-y-2 border-t border-accent/20 pt-5 text-[0.9375rem] text-heading">
-                <li>Pre-colonial and post-colonial African historical research</li>
+                <li>Pre-colonial African historical research</li>
                 <li>The Mikaelson Institute for African Studies</li>
                 <li>Mikaelson School Clubs</li>
               </ul>
@@ -171,11 +171,11 @@ export default function HomePage() {
             label="Research & records"
             id="research"
             title="The research archive and the register."
-            lede="The Initiative’s historical research is organised into four series and carried out through the Mikaelson Institute for African Studies. Publications from both engines are entered in a single register."
+            lede="The Initiative’s research is devoted to pre-colonial African history and carried out through the Mikaelson Institute for African Studies. Publications from both engines are entered in a single register."
           />
           <div className="mt-10 grid gap-10 md:ml-[25%] md:grid-cols-2">
             <div data-reveal>
-              <h3 className="meta mb-4 font-sans font-normal">Research series</h3>
+              <h3 className="meta mb-4 font-sans font-normal">Research focus</h3>
               <ul className="border-t border-rule">
                 {RESEARCH_SERIES.map((s) => (
                   <li key={s.ref} className="flex items-baseline gap-4 border-b border-rule py-3">

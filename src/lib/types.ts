@@ -85,12 +85,6 @@ export interface ResearchSeries {
   description: string;
 }
 
-/** A period in the archive's chronological framework. */
-export interface ArchivePeriod {
-  label: string;
-  description: string;
-}
-
 /** Descriptive overview of the Mikaelson School Clubs programme. */
 export interface SchoolClubOverview {
   name: string;

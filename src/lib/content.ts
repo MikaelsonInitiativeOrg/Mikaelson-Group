@@ -1,5 +1,4 @@
 import type {
-  ArchivePeriod,
   CorrespondenceDesk,
   Dispatch,
   Framework,
@@ -175,36 +174,17 @@ export const FRAMEWORKS: Framework[] = [
 export const RESEARCH_SERIES: ResearchSeries[] = [
   {
     ref: "MI/RS-01",
-    title: "Pre-colonial civilisation",
+    title: "Pre-colonial African history",
     description:
-      "States, cities, trade, law, science and thought across the continent before sustained European contact, studied on their own terms.",
-  },
-  {
-    ref: "MI/RS-02",
-    title: "Colonialism and imperialism",
-    description:
-      "The mechanisms, administration and economics of colonial rule, and the forms of resistance and accommodation it met.",
-  },
-  {
-    ref: "MI/RS-03",
-    title: "Religion",
-    description:
-      "Indigenous religious systems, the arrival and adaptation of Islam and Christianity, and religion’s place in public life.",
-  },
-  {
-    ref: "MI/RS-04",
-    title: "Decolonisation",
-    description:
-      "Independence movements, post-colonial states, and the unfinished work of decolonising institutions, knowledge and language.",
+      "The states, cities, trade, law, science and thought of African societies before sustained European colonial rule, studied on their own terms and from their own sources.",
   },
 ];
 
-export const ARCHIVE_PERIODS: ArchivePeriod[] = [
-  { label: "Pre-colonial", description: "Societies before sustained external rule." },
-  { label: "Contact", description: "Trade, missions and the first encounters." },
-  { label: "Colonial", description: "Formal empire and its administration." },
-  { label: "Independence", description: "The movements and the new states." },
-  { label: "Contemporary", description: "The post-colonial present." },
+export const RESEARCH_SCOPE: RecordEntry[] = [
+  { label: "Focus", value: "Pre-colonial African history" },
+  { label: "Period", value: "From the earliest societies to the eve of sustained European colonial rule" },
+  { label: "Geography", value: "The African continent" },
+  { label: "Carried out by", value: "Mikaelson Institute for African Studies" },
 ];
 
 /** No monographs have been published yet. Add entries here as they are. */

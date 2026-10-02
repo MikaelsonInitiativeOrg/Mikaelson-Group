@@ -5,13 +5,13 @@ import { PageHeader } from "@/components/ui/PageHeader";
 import { Register } from "@/components/ui/Register";
 import { SectionHead } from "@/components/ui/SectionHead";
 import {
-  ARCHIVE_PERIODS,
   DISPATCHES,
   FRAMEWORKS,
   GOVERNANCE,
   LEGAL_RECORD,
   MONOGRAPHS,
   ORG,
+  RESEARCH_SCOPE,
   RESEARCH_SERIES,
   SCHOOL_CLUBS,
 } from "@/lib/content";
@@ -19,7 +19,7 @@ import {
 export const metadata: Metadata = {
   title: "The Mikaelson Initiative",
   description:
-    "The non-profit wing of Mikaelson Group: a registered Incorporated Trustees body (CAMA 2020, Part F) housing African historical research and the Mikaelson School Clubs.",
+    "The non-profit wing of Mikaelson Group: a registered Incorporated Trustees body (CAMA 2020, Part F) housing pre-colonial African historical research and the Mikaelson School Clubs.",
 };
 
 export default function InitiativePage() {
@@ -35,7 +35,7 @@ export default function InitiativePage() {
             The Mikaelson <em className="text-accent">Initiative.</em>
           </>
         }
-        lede="The Initiative is where the work is carried into the public interest. It is a registered Incorporated Trustees body, and it houses two programmes: research into Africa’s pre-colonial and post-colonial history, and student-led clubs in secondary schools."
+        lede="The Initiative is where the work is carried into the public interest. It is a registered Incorporated Trustees body, and it houses two programmes: research into Africa’s pre-colonial history, and student-led clubs in secondary schools."
       >
         <ul className="mt-12 flex flex-wrap gap-x-8 gap-y-3 border-t border-rule pt-5">
           {[
@@ -125,41 +125,33 @@ export default function InitiativePage() {
             number="03"
             label="Research archive"
             id="archive"
-            title="African history, from the pre-colonial to the present."
-            lede="The Initiative’s research is carried out through the Mikaelson Institute for African Studies, a pan-African research institute. Its work is organised into four series and read against a single chronology."
+            title="Pre-colonial African history."
+            lede="The Initiative’s research is devoted to one subject: Africa before sustained European colonial rule. It is carried out through the Mikaelson Institute for African Studies, a pan-African research institute."
           />
 
-          {/* Chronology */}
-          <div className="mt-12 md:ml-[25%]" data-reveal>
-            <h3 className="meta mb-5 font-sans font-normal">Chronological framework</h3>
-            <ol className="relative grid gap-6 sm:grid-cols-5 sm:gap-3">
-              <span aria-hidden className="absolute left-[5px] top-0 h-full w-px bg-rule-strong sm:left-0 sm:top-[5px] sm:h-px sm:w-full" />
-              {ARCHIVE_PERIODS.map((p, i) => (
-                <li key={p.label} className="relative pl-7 sm:pl-0 sm:pt-7">
-                  <span
-                    aria-hidden
-                    className={`absolute left-0 top-1.5 h-[11px] w-[11px] rounded-full border sm:top-0 ${
-                      i === 0 || i === ARCHIVE_PERIODS.length - 1
-                        ? "border-accent bg-accent"
-                        : "border-accent bg-ground"
-                    }`}
-                  />
-                  <p className="font-serif text-[1.125rem] text-heading">{p.label}</p>
-                  <p className="mt-1 text-[0.875rem]">{p.description}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
-
-          {/* Series */}
-          <div className="mt-14 grid gap-px overflow-hidden border border-rule bg-rule md:ml-[25%] md:grid-cols-2">
-            {RESEARCH_SERIES.map((s, i) => (
-              <article key={s.ref} className="bg-surface p-6 md:p-8" data-reveal style={{ "--i": i } as React.CSSProperties}>
+          <div className="mt-10 grid gap-6 md:ml-[25%] md:grid-cols-12">
+            {RESEARCH_SERIES.map((s) => (
+              <article key={s.ref} className="border border-accent/30 bg-band/25 p-6 md:col-span-5 md:p-8" data-reveal>
                 <p className="meta text-accent">{s.ref}</p>
-                <h3 className="mt-3 text-[1.5rem]">{s.title}</h3>
+                <h3 className="mt-3 text-[1.5rem] leading-tight">{s.title}</h3>
                 <p className="mt-3 text-[0.9375rem]">{s.description}</p>
               </article>
             ))}
+
+            <dl className="border border-rule bg-surface md:col-span-7" data-reveal style={{ "--i": 1 } as React.CSSProperties}>
+              <div className="border-b border-rule px-5 py-3 md:px-6">
+                <p className="meta">Scope of the archive</p>
+              </div>
+              {RESEARCH_SCOPE.map((row) => (
+                <div
+                  key={row.label}
+                  className="grid gap-1 border-b border-rule px-5 py-4 last:border-b-0 sm:grid-cols-12 sm:gap-6 md:px-6"
+                >
+                  <dt className="meta sm:col-span-4">{row.label}</dt>
+                  <dd className="text-heading sm:col-span-8">{row.value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
 
           <div className="mt-14 md:ml-[25%]" data-reveal>
