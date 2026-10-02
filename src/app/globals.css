@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+/*
+  Mikaelson Group — tokens.
+  Colours are the Mikaelson Initiative's existing brand (see the Initiative
+  site's docs/REDESIGN.md); parchment is the logo's cream. Dark ground first.
+
+  Contrast on --color-ink (#050A0A):
+    parchment 15.6:1 · muted 8.6:1 · faint 4.7:1 · turquoise 12.9:1 · teal 5.5:1
+*/
+@theme {
+  --color-ink: #050a0a; /* page ground (Initiative near-black) */
+  --color-surface: #0b1517; /* cards, panels */
+  --color-surface-2: #0f1c1f; /* raised / hover */
+  --color-rule: #1a2c2f; /* borders and ruled lines */
+  --color-rule-strong: #26403f;
+  --color-turquoise: #5ce1e6; /* accent — dark grounds only */
+  --color-teal: #0097a7; /* small labels, focus */
+  --color-deep-teal: #003e45; /* bands */
+  --color-gold: #c9a84c; /* the legal seal only */
+  --color-parchment: #e9e1d8; /* headings */
+  --color-muted: #a3b2b3; /* body */
+  --color-faint: #6f8385; /* metadata */
+
+  --font-serif: var(--font-spectral), ui-serif, Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background: var(--color-ink);
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-ink);
+    color: var(--color-muted);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.7;
+    -webkit-tap-highlight-color: transparent;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-parchment);
+    font-family: var(--font-serif);
+    font-weight: 500;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  ::selection {
+    background: var(--color-turquoise);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-turquoise);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  /* Catalogue metadata: refs, labels, dates. */
+  .meta {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: var(--color-faint);
+  }
+
+  .prose-body {
+    max-width: 64ch;
+    font-size: 1.0625rem;
+  }
+
+  /* Underlined text link that draws its rule on hover. */
+  .ink-link {
+    color: var(--color-parchment);
+    background-image: linear-gradient(var(--color-turquoise), var(--color-turquoise));
+    background-size: 100% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition:
+      background-size 260ms var(--ease-out-strong),
+      color 160ms ease;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .ink-link:hover {
+      color: var(--color-turquoise);
+    }
+  }
+
+  /* Press feedback for everything pressable. */
+  .press {
+    transition:
+      transform 160ms var(--ease-out-strong),
+      background-color 160ms ease,
+      border-color 160ms ease,
+      color 160ms ease;
+  }
+  .press:active {
+    transform: scale(0.97);
+  }
+}
+
+/*
+  Scroll reveals. Content is visible without JS: hiding only applies once
+  the inline script in layout.tsx has put .js on <html>.
+*/
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 600ms var(--ease-out-strong),
+    transform 600ms var(--ease-out-strong);
+  transition-delay: calc(var(--i, 0) * 60ms);
+}
+.js [data-reveal][data-shown] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal] {
+    transform: none;
+    transition: opacity 200ms linear;
+    transition-delay: 0ms;
+  }
+  .press:active {
+    transform: none;
+  }
+}
