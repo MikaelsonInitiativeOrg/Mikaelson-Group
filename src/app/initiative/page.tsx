@@ -15,11 +15,16 @@ import {
   RESEARCH_SERIES,
   SCHOOL_CLUBS,
 } from "@/lib/content";
+import { OG_BASE } from "@/lib/site";
+
+const description =
+  "The non-profit wing of Mikaelson Group: a registered Incorporated Trustees body (CAMA 2020, Part F) housing pre-colonial African historical research and the Mikaelson School Clubs.";
 
 export const metadata: Metadata = {
   title: "The Mikaelson Initiative",
-  description:
-    "The non-profit wing of Mikaelson Group: a registered Incorporated Trustees body (CAMA 2020, Part F) housing pre-colonial African historical research and the Mikaelson School Clubs.",
+  description,
+  alternates: { canonical: "/initiative" },
+  openGraph: { ...OG_BASE, url: "/initiative", title: "The Mikaelson Initiative · Mikaelson Group", description },
 };
 
 export default function InitiativePage() {

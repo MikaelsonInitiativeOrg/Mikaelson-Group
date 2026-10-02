@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { RevealObserver } from "@/components/ui/RevealObserver";
+import { OG_BASE, SITE_DESCRIPTION, SITE_URL } from "@/lib/site";
 
 const spectral = Spectral({
   variable: "--font-spectral",
@@ -24,13 +25,25 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Mikaelson Group",
     template: "%s · Mikaelson Group",
   },
-  description:
-    "Mikaelson Group articulates how human capability is developed: epistemic agency, intellectual infrastructure, applied human capability and generative capacity. Its non-profit wing is the Mikaelson Initiative.",
-  icons: { icon: "/brand/mikaelson-mark.png" },
+  description: SITE_DESCRIPTION,
+  applicationName: "Mikaelson Group",
+  openGraph: { ...OG_BASE, title: "Mikaelson Group", description: SITE_DESCRIPTION },
+  twitter: { card: "summary_large_image" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
+  // Google Search Console (HTML tag method): set the code from Search Console
+  // as NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION on the host. Omitted when unset.
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined,
 };
 
 export const viewport: Viewport = {

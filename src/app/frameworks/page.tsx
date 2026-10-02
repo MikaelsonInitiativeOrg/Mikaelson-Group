@@ -2,11 +2,16 @@ import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { FRAMEWORKS } from "@/lib/content";
+import { OG_BASE } from "@/lib/site";
+
+const description =
+  "An informational dossier on the four Mikaelson frameworks: Epistemic Agency, Intellectual Infrastructure, Applied Human Capability and Generative Capacity.";
 
 export const metadata: Metadata = {
   title: "Frameworks",
-  description:
-    "An informational dossier on the four Mikaelson frameworks: Epistemic Agency, Intellectual Infrastructure, Applied Human Capability and Generative Capacity.",
+  description,
+  alternates: { canonical: "/frameworks" },
+  openGraph: { ...OG_BASE, url: "/frameworks", title: "Frameworks · Mikaelson Group", description },
 };
 
 export default function FrameworksPage() {

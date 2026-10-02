@@ -1,9 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { EngineDiagram } from "@/components/home/EngineDiagram";
 import { Button } from "@/components/ui/Button";
 import { Register } from "@/components/ui/Register";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { DISPATCHES, FRAMEWORKS, MONOGRAPHS, ORG, RESEARCH_SERIES } from "@/lib/content";
+import { OG_BASE, SITE_DESCRIPTION, organizationJsonLd } from "@/lib/site";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+  openGraph: { ...OG_BASE, url: "/", title: "Mikaelson Group", description: SITE_DESCRIPTION },
+};
 
 const THESES = [
   "A society’s prospects are set less by its resources than by what its people can understand, do and originate.",
@@ -17,6 +24,12 @@ const ROMAN = ["I", "II", "III", "IV"];
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        // Organisation + logo for Google; "<" escaped so the JSON can't close the tag.
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()).replace(/</g, "\\u003c") }}
+      />
+
       {/* Hero: statement of thesis */}
       <section className="mx-auto max-w-[1240px] px-4 pb-20 pt-14 md:px-8 md:pb-28 md:pt-24">
         <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-10">

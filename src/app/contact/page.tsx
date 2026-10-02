@@ -3,11 +3,16 @@ import { Button } from "@/components/ui/Button";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { DESKS, ORG, mailto } from "@/lib/content";
+import { OG_BASE } from "@/lib/site";
+
+const description =
+  "A directory for institutional, academic, editorial, school and press correspondence with Mikaelson Group and the Mikaelson Initiative.";
 
 export const metadata: Metadata = {
   title: "Correspondence",
-  description:
-    "A directory for institutional, academic, editorial, school and press correspondence with Mikaelson Group and the Mikaelson Initiative.",
+  description,
+  alternates: { canonical: "/contact" },
+  openGraph: { ...OG_BASE, url: "/contact", title: "Correspondence · Mikaelson Group", description },
 };
 
 const ENGINE_LABEL = {
