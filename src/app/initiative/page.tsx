@@ -42,6 +42,11 @@ export default function InitiativePage() {
         }
         lede="The Initiative is where the work is carried into the public interest. It is a registered Incorporated Trustees body, and it houses two programmes: research into Africa’s pre-colonial history, and student-led clubs in secondary schools."
       >
+        <div className="mt-10">
+          <Button href={ORG.initiativeUrl} size="lg" external>
+            Visit the Initiative
+          </Button>
+        </div>
         <ul className="mt-12 flex flex-wrap gap-x-8 gap-y-3 border-t border-rule pt-5">
           {[
             ["§ 01", "Legal standing", "#standing"],

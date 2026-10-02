@@ -135,9 +135,14 @@ export default function HomePage() {
                 <li>The Mikaelson Institute for African Studies</li>
                 <li>Mikaelson School Clubs</li>
               </ul>
-              <Button href="/initiative" arrow className="mt-8 self-start">
-                Governance, archive and clubs
-              </Button>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button href={ORG.initiativeUrl} external>
+                  Visit the Initiative
+                </Button>
+                <Button href="/initiative" variant="ghost" arrow>
+                  Governance, archive and clubs
+                </Button>
+              </div>
             </article>
           </div>
         </section>

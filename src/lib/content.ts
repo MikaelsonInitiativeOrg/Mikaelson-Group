@@ -23,7 +23,7 @@ export const ORG = {
   email: "hello@mikaelsoninitiative.org",
   instituteUrl: "https://institute.mikaelsoninitiative.org",
   clubsUrl: "https://club.mikaelsoninitiative.org",
-  initiativeUrl: "https://mikaelsoninitiative.org",
+  initiativeUrl: "https://www.mikaelsoninitiative.org",
 } as const;
 
 export const REGISTRATION_LABEL = ORG.registrationNumber ?? "IT — to be published";

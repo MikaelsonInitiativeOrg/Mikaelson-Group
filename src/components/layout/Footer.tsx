@@ -24,7 +24,7 @@ const COLUMNS = [
     links: [
       { href: ORG.instituteUrl, label: "Mikaelson Institute for African Studies" },
       { href: ORG.clubsUrl, label: "Mikaelson School Club" },
-      { href: ORG.initiativeUrl, label: "mikaelsoninitiative.org" },
+      { href: ORG.initiativeUrl, label: "The Mikaelson Initiative" },
     ],
   },
 ];
