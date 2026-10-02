@@ -88,8 +88,14 @@ export default async function PostPage({ params }: Props) {
 
       {post.coverImage && (
         <figure className="mx-auto mb-14 max-w-[1240px] px-4 md:px-8">
-          <div className="relative aspect-[16/9] overflow-hidden border border-rule">
-            <CoverImage src={post.coverImage} alt={post.coverAlt ?? ""} sizes="(min-width: 1240px) 1176px, 100vw" priority />
+          <div className="border border-rule bg-surface">
+            <CoverImage
+              src={post.coverImage}
+              alt={post.coverAlt ?? ""}
+              sizes="(min-width: 1240px) 1176px, 100vw"
+              priority
+              fit="natural"
+            />
           </div>
           {post.coverAlt && <figcaption className="meta mt-3">{post.coverAlt}</figcaption>}
         </figure>

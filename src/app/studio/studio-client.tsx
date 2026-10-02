@@ -573,7 +573,11 @@ function Editor({
             {draft.coverImage ? (
               <div className="space-y-3">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={draft.coverImage} alt="" className="aspect-[16/9] w-full rounded-md border border-rule object-cover" />
+                <img
+                  src={draft.coverImage}
+                  alt=""
+                  className="mx-auto block h-auto max-h-[420px] w-auto max-w-full rounded-md border border-rule"
+                />
                 <label htmlFor="cover-alt" className={LABEL}>
                   Description (alt text and caption)
                 </label>
