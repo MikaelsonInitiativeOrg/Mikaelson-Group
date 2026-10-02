@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono, Inter, Spectral } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
@@ -33,6 +33,13 @@ export const metadata: Metadata = {
   icons: { icon: "/brand/mikaelson-mark.png" },
 };
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#050a0a" },
+    { media: "(prefers-color-scheme: light)", color: "#f6f2ec" },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -53,7 +60,7 @@ export default function RootLayout({
       <body className="antialiased">
         <a
           href="#main"
-          className="meta sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-surface focus:px-3 focus:py-2 focus:text-parchment"
+          className="meta sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-surface focus:px-3 focus:py-2 focus:text-heading"
         >
           Skip to content
         </a>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { EngineDiagram } from "@/components/home/EngineDiagram";
+import { Button } from "@/components/ui/Button";
 import { Register } from "@/components/ui/Register";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { DISPATCHES, FRAMEWORKS, MONOGRAPHS, ORG, RESEARCH_SERIES } from "@/lib/content";
@@ -21,13 +22,13 @@ export default function HomePage() {
         <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-7">
             <p className="meta">
-              <span className="text-turquoise">MG/00</span>
+              <span className="text-accent">MG/00</span>
               <span className="mx-2 text-rule-strong">/</span>
               Statement of thesis
             </p>
             <h1 className="mt-6 text-[2.5rem] leading-[1.06] tracking-[-0.025em] sm:text-[3.25rem] lg:text-[4.25rem]">
               Human capability is infrastructure.{" "}
-              <em className="text-turquoise">It can be studied, built and handed on.</em>
+              <em className="text-accent">It can be studied, built and handed on.</em>
             </h1>
             <p className="prose-body mt-8 text-[1.125rem]">
               Mikaelson Group articulates how people come to think for themselves, how communities build the
@@ -35,13 +36,13 @@ export default function HomePage() {
               before. Its non-profit wing, the Mikaelson Initiative, carries that work into historical research and
               into secondary schools.
             </p>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:gap-8">
-              <Link href="/frameworks" className="ink-link press self-start text-[1.0625rem]">
-                Read the four frameworks <span aria-hidden>→</span>
-              </Link>
-              <Link href="/initiative" className="ink-link press self-start text-[1.0625rem]">
-                The Mikaelson Initiative <span aria-hidden>→</span>
-              </Link>
+            <div className="mt-10 flex flex-col items-stretch gap-3 sm:flex-row sm:items-start sm:gap-4">
+              <Button href="/frameworks" size="lg" arrow>
+                Read the four frameworks
+              </Button>
+              <Button href="/initiative" variant="ghost" size="lg">
+                The Mikaelson Initiative
+              </Button>
             </div>
           </div>
           <div className="mx-auto w-full max-w-[520px] lg:col-span-5">
@@ -63,12 +64,12 @@ export default function HomePage() {
             {THESES.map((t, i) => (
               <li
                 key={t}
-                className="bg-ink p-6 md:p-8"
+                className="bg-ground p-6 md:p-8"
                 data-reveal
                 style={{ "--i": i } as React.CSSProperties}
               >
-                <span className="font-serif text-[1.5rem] italic text-turquoise">{ROMAN[i]}.</span>
-                <p className="mt-3 font-serif text-[1.25rem] leading-[1.45] text-parchment">{t}</p>
+                <span className="font-serif text-[1.5rem] italic text-accent">{ROMAN[i]}.</span>
+                <p className="mt-3 font-serif text-[1.25rem] leading-[1.45] text-heading">{t}</p>
               </li>
             ))}
           </ol>
@@ -93,18 +94,18 @@ export default function HomePage() {
                 Develops and publishes the conceptual frameworks: what human capability is, how it grows, and how it
                 can be recognised. Its output is editorial.
               </p>
-              <ul className="mt-6 space-y-2 border-t border-rule pt-5 text-[0.9375rem] text-parchment">
+              <ul className="mt-6 space-y-2 border-t border-rule pt-5 text-[0.9375rem] text-heading">
                 <li>The four frameworks</li>
                 <li>Monographs</li>
                 <li>Dispatches</li>
               </ul>
-              <Link href="/frameworks" className="ink-link press mt-8 self-start">
-                The frameworks dossier <span aria-hidden>→</span>
-              </Link>
+              <Button href="/frameworks" variant="ghost" arrow className="mt-8 self-start">
+                The frameworks dossier
+              </Button>
             </article>
 
             <article
-              className="flex flex-col border border-turquoise/30 bg-deep-teal/25 p-6 md:p-8"
+              className="flex flex-col border border-accent/30 bg-band/25 p-6 md:p-8"
               data-reveal
               style={{ "--i": 1 } as React.CSSProperties}
             >
@@ -116,14 +117,14 @@ export default function HomePage() {
                 A registered Incorporated Trustees body under Part F of the Companies and Allied Matters Act 2020. It
                 carries the work into the public interest, where it can be tested.
               </p>
-              <ul className="mt-6 space-y-2 border-t border-turquoise/20 pt-5 text-[0.9375rem] text-parchment">
+              <ul className="mt-6 space-y-2 border-t border-accent/20 pt-5 text-[0.9375rem] text-heading">
                 <li>Pre-colonial and post-colonial African historical research</li>
                 <li>The Mikaelson Institute for African Studies</li>
                 <li>Mikaelson School Clubs</li>
               </ul>
-              <Link href="/initiative" className="ink-link press mt-8 self-start">
-                Governance, archive and clubs <span aria-hidden>→</span>
-              </Link>
+              <Button href="/initiative" arrow className="mt-8 self-start">
+                Governance, archive and clubs
+              </Button>
             </article>
           </div>
         </section>
@@ -146,14 +147,14 @@ export default function HomePage() {
                 >
                   <span className="meta">{fw.ref}</span>
                   <span>
-                    <span className="block font-serif text-[1.5rem] leading-tight text-parchment transition-colors duration-150 group-hover:text-turquoise md:text-[1.875rem]">
+                    <span className="block font-serif text-[1.5rem] leading-tight text-heading transition-colors duration-150 group-hover:text-accent md:text-[1.875rem]">
                       {fw.title}
                     </span>
                     <span className="mt-2 block max-w-[56ch] text-[0.9375rem]">{fw.summary}</span>
                   </span>
                   <span
                     aria-hidden
-                    className="text-faint transition-transform duration-200 ease-[var(--ease-out-strong)] group-hover:translate-x-1 group-hover:text-turquoise"
+                    className="text-faint transition-transform duration-200 ease-[var(--ease-out-strong)] group-hover:translate-x-1 group-hover:text-accent"
                   >
                     →
                   </span>
@@ -179,17 +180,17 @@ export default function HomePage() {
                 {RESEARCH_SERIES.map((s) => (
                   <li key={s.ref} className="flex items-baseline gap-4 border-b border-rule py-3">
                     <span className="meta w-[4.5rem] shrink-0">{s.ref}</span>
-                    <span className="text-parchment">{s.title}</span>
+                    <span className="text-heading">{s.title}</span>
                   </li>
                 ))}
               </ul>
-              <div className="mt-6 flex flex-col gap-3">
-                <Link href="/initiative#archive" className="ink-link press self-start">
-                  The research archive <span aria-hidden>→</span>
-                </Link>
-                <a href={ORG.instituteUrl} className="ink-link press self-start" rel="noopener">
-                  Mikaelson Institute for African Studies <span aria-hidden>↗</span>
-                </a>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button href="/initiative#archive" variant="ghost" arrow>
+                  The research archive
+                </Button>
+                <Button href={ORG.instituteUrl} variant="ghost" external>
+                  The Institute
+                </Button>
               </div>
             </div>
             <div data-reveal style={{ "--i": 1 } as React.CSSProperties}>

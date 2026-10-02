@@ -55,12 +55,12 @@ export function Footer() {
                   return (
                     <li key={link.href}>
                       {external ? (
-                        <a href={link.href} className="text-muted hover:text-parchment" rel="noopener">
+                        <a href={link.href} className="text-muted hover:text-heading" rel="noopener">
                           {link.label}
                           <span aria-hidden className="ml-1 text-faint">↗</span>
                         </a>
                       ) : (
-                        <Link href={link.href} className="text-muted hover:text-parchment">
+                        <Link href={link.href} className="text-muted hover:text-heading">
                           {link.label}
                         </Link>
                       )}
@@ -81,21 +81,21 @@ export function Footer() {
           <div className="flex items-start gap-3 md:col-span-3">
             <span
               aria-hidden
-              className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gold/60 font-mono text-[0.625rem] text-gold"
+              className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-seal/60 font-mono text-[0.625rem] text-seal"
             >
               F
             </span>
-            <h2 id="legal-disclosure" className="meta font-sans font-normal text-parchment">
+            <h2 id="legal-disclosure" className="meta font-sans font-normal text-heading">
               Legal disclosure
               <span className="block text-faint">CAMA 2020 · Part F</span>
             </h2>
           </div>
           <div className="space-y-3 text-[0.875rem] leading-relaxed md:col-span-9">
             <p>
-              <strong className="font-medium text-parchment">{ORG.initiative}</strong> is the public name of{" "}
+              <strong className="font-medium text-heading">{ORG.initiative}</strong> is the public name of{" "}
               {ORG.registeredName}, a non-profit body registered with the Corporate Affairs Commission of Nigeria as
               Incorporated Trustees under Part F of the Companies and Allied Matters Act 2020. Registration no.{" "}
-              <span className="font-mono text-[0.8125rem] text-parchment">{REGISTRATION_LABEL}</span>. Its income and
+              <span className="font-mono text-[0.8125rem] text-heading">{REGISTRATION_LABEL}</span>. Its income and
               property are applied solely to its charitable objects.
             </p>
             <p>

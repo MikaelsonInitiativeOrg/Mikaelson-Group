@@ -13,7 +13,7 @@ export function Logo({ size = 32, wordmark = "Mikaelson Group" }: { size?: numbe
         priority
       />
       {wordmark && (
-        <span className="font-serif text-[1.125rem] font-medium leading-none tracking-[-0.01em] text-parchment">
+        <span className="font-serif text-[1.125rem] font-medium leading-none tracking-[-0.01em] text-heading">
           {wordmark}
         </span>
       )}

@@ -3,25 +3,69 @@
 /*
   Mikaelson Group — tokens.
   Colours are the Mikaelson Initiative's existing brand (see the Initiative
-  site's docs/REDESIGN.md); parchment is the logo's cream. Dark ground first.
+  site's docs/REDESIGN.md). Each role has a dark and a light value; the
+  user's system setting (prefers-color-scheme) chooses between them.
 
-  Contrast on --color-ink (#050A0A):
-    parchment 15.6:1 · muted 8.6:1 · faint 4.7:1 · turquoise 12.9:1 · teal 5.5:1
+  Dark  (on #050A0A): heading 15.6:1 · muted 8.6:1 · faint 4.7:1 · accent 12.9:1
+  Light (on #F6F2EC): heading 14.1:1 · muted 7.3:1 · faint 4.9:1 · accent 5.4:1 · seal 4.7:1
+  Turquoise fails on light grounds (1.2:1), so light mode uses a deep
+  lagoon for the accent; the logo tile keeps its turquoise in both.
 */
-@theme {
-  --color-ink: #050a0a; /* page ground (Initiative near-black) */
-  --color-surface: #0b1517; /* cards, panels */
-  --color-surface-2: #0f1c1f; /* raised / hover */
-  --color-rule: #1a2c2f; /* borders and ruled lines */
-  --color-rule-strong: #26403f;
-  --color-turquoise: #5ce1e6; /* accent — dark grounds only */
-  --color-teal: #0097a7; /* small labels, focus */
-  --color-deep-teal: #003e45; /* bands */
-  --color-gold: #c9a84c; /* the legal seal only */
-  --color-parchment: #e9e1d8; /* headings */
-  --color-muted: #a3b2b3; /* body */
-  --color-faint: #6f8385; /* metadata */
+:root {
+  color-scheme: dark;
+  --ground: #050a0a; /* page (Initiative near-black) */
+  --surface: #0b1517; /* cards, panels */
+  --surface-2: #0f1c1f; /* raised / hover */
+  --rule: #1a2c2f; /* borders and ruled lines */
+  --rule-strong: #26403f;
+  --accent: #5ce1e6; /* Initiative turquoise */
+  --band: #003e45; /* Initiative deep teal, used as a tint */
+  --seal: #c9a84c; /* Initiative gold, the legal seal only */
+  --heading: #e9e1d8; /* the logo's cream */
+  --muted: #a3b2b3; /* body */
+  --faint: #6f8385; /* metadata */
+  /* School Club buttons: turquoise face, deep-teal text. On the near-black
+     ground a deep-teal step disappears, so dark mode steps in mid teal. */
+  --btn-face: #5ce1e6;
+  --btn-ink: #003e45;
+  --btn-step: #1b8f96;
+}
 
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --ground: #f6f2ec; /* paper */
+    --surface: #fffdf9;
+    --surface-2: #efe9e0;
+    --rule: #ded6cb;
+    --rule-strong: #c4b9aa;
+    --accent: #0a6e79; /* lagoon, darkened for small text */
+    --band: #7cc9cd;
+    --seal: #85691c;
+    --heading: #14262a; /* Institute ink */
+    --muted: #3f5357;
+    --faint: #5a6d70;
+    --btn-step: #003e45; /* as on the club site */
+  }
+}
+
+@theme inline {
+  --color-ground: var(--ground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-accent: var(--accent);
+  --color-band: var(--band);
+  --color-seal: var(--seal);
+  --color-heading: var(--heading);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-btn-face: var(--btn-face);
+  --color-btn-ink: var(--btn-ink);
+}
+
+@theme {
   --font-serif: var(--font-spectral), ui-serif, Georgia, serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
@@ -32,12 +76,11 @@
 
 @layer base {
   html {
-    color-scheme: dark;
-    background: var(--color-ink);
+    background: var(--color-ground);
     -webkit-text-size-adjust: 100%;
   }
   body {
-    background: var(--color-ink);
+    background: var(--color-ground);
     color: var(--color-muted);
     font-family: var(--font-sans);
     font-size: 1rem;
@@ -48,7 +91,7 @@
   h2,
   h3,
   h4 {
-    color: var(--color-parchment);
+    color: var(--color-heading);
     font-family: var(--font-serif);
     font-weight: 500;
     text-wrap: balance;
@@ -57,11 +100,11 @@
     text-wrap: pretty;
   }
   ::selection {
-    background: var(--color-turquoise);
-    color: var(--color-ink);
+    background: var(--color-accent);
+    color: var(--color-ground);
   }
   :focus-visible {
-    outline: 2px solid var(--color-turquoise);
+    outline: 2px solid var(--color-accent);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -84,8 +127,8 @@
 
   /* Underlined text link that draws its rule on hover. */
   .ink-link {
-    color: var(--color-parchment);
-    background-image: linear-gradient(var(--color-turquoise), var(--color-turquoise));
+    color: var(--color-heading);
+    background-image: linear-gradient(var(--color-accent), var(--color-accent));
     background-size: 100% 1px;
     background-position: 0 100%;
     background-repeat: no-repeat;
@@ -95,7 +138,7 @@
   }
   @media (hover: hover) and (pointer: fine) {
     .ink-link:hover {
-      color: var(--color-turquoise);
+      color: var(--color-accent);
     }
   }
 

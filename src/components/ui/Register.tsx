@@ -48,7 +48,7 @@ export function Register({
     return (
       <div className="border border-dashed border-rule-strong px-5 py-8 md:px-8">
         <p className="meta">Register · 0 entries</p>
-        <p className="mt-3 max-w-[56ch] text-parchment">{emptyNote}</p>
+        <p className="mt-3 max-w-[56ch] text-heading">{emptyNote}</p>
       </div>
     );
   }
@@ -60,7 +60,7 @@ export function Register({
           <>
             <span className="meta md:col-span-2">{row.ref}</span>
             <span className="md:col-span-7">
-              <span className="block font-serif text-[1.25rem] leading-snug text-parchment">{row.title}</span>
+              <span className="block font-serif text-[1.25rem] leading-snug text-heading">{row.title}</span>
               <span className="mt-1 block text-[0.9375rem]">{row.byline}</span>
             </span>
             <span className="meta md:col-span-3 md:text-right">

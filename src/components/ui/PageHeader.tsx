@@ -15,7 +15,7 @@ export function PageHeader({
   return (
     <header className="mx-auto max-w-[1240px] px-4 pb-16 pt-14 md:px-8 md:pb-24 md:pt-24">
       <p className="meta">
-        <span className="text-turquoise">{refCode}</span>
+        <span className="text-accent">{refCode}</span>
         <span className="mx-2 text-rule-strong">/</span>
         {kicker}
       </p>

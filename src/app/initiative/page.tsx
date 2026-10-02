@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Button } from "@/components/ui/Button";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Register } from "@/components/ui/Register";
 import { SectionHead } from "@/components/ui/SectionHead";
@@ -31,7 +32,7 @@ export default function InitiativePage() {
         kicker="Non-profit wing"
         title={
           <>
-            The Mikaelson <em className="text-turquoise">Initiative.</em>
+            The Mikaelson <em className="text-accent">Initiative.</em>
           </>
         }
         lede="The Initiative is where the work is carried into the public interest. It is a registered Incorporated Trustees body, and it houses two programmes: research into Africa’s pre-colonial and post-colonial history, and student-led clubs in secondary schools."
@@ -44,8 +45,8 @@ export default function InitiativePage() {
             ["§ 04", "School clubs", "#clubs"],
           ].map(([n, label, href]) => (
             <li key={href}>
-              <a href={href} className="press inline-flex items-baseline gap-2 text-[0.9375rem] text-muted hover:text-parchment">
-                <span className="meta text-turquoise">{n}</span>
+              <a href={href} className="press inline-flex items-baseline gap-2 text-[0.9375rem] text-muted hover:text-heading">
+                <span className="meta text-accent">{n}</span>
                 {label}
               </a>
             </li>
@@ -67,8 +68,8 @@ export default function InitiativePage() {
             <div className="relative border border-rule bg-surface">
               <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-b border-rule px-5 py-3 md:px-6">
                 <p className="meta whitespace-nowrap">Record of registration</p>
-                <span className="meta flex items-center gap-2 whitespace-nowrap text-gold">
-                  <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-gold" />
+                <span className="meta flex items-center gap-2 whitespace-nowrap text-seal">
+                  <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-seal" />
                   CAMA 2020 · Part F
                 </span>
               </div>
@@ -79,7 +80,7 @@ export default function InitiativePage() {
                     className="grid gap-1 border-b border-rule px-5 py-4 last:border-b-0 sm:grid-cols-12 sm:gap-6 md:px-6"
                   >
                     <dt className="meta sm:col-span-4">{row.label}</dt>
-                    <dd className={`sm:col-span-8 ${row.pending ? "font-mono text-[0.875rem] text-faint" : "text-parchment"}`}>
+                    <dd className={`sm:col-span-8 ${row.pending ? "font-mono text-[0.875rem] text-faint" : "text-heading"}`}>
                       {row.value}
                       {row.pending && (
                         <span className="ml-2 inline-block border border-rule-strong px-1.5 py-0.5 align-middle text-[0.6875rem] uppercase tracking-wider">
@@ -105,7 +106,7 @@ export default function InitiativePage() {
           />
           <ol className="mt-10 grid gap-px overflow-hidden border border-rule bg-rule md:ml-[25%] md:grid-cols-2">
             {GOVERNANCE.map((g, i) => (
-              <li key={g.title} className="bg-ink p-6 md:p-8" data-reveal style={{ "--i": i } as React.CSSProperties}>
+              <li key={g.title} className="bg-ground p-6 md:p-8" data-reveal style={{ "--i": i } as React.CSSProperties}>
                 <p className="meta">MI/GV-{String(i + 1).padStart(2, "0")}</p>
                 <h3 className="mt-3 text-[1.375rem]">{g.title}</h3>
                 <p className="mt-3 text-[0.9375rem]">{g.body}</p>
@@ -139,11 +140,11 @@ export default function InitiativePage() {
                     aria-hidden
                     className={`absolute left-0 top-1.5 h-[11px] w-[11px] rounded-full border sm:top-0 ${
                       i === 0 || i === ARCHIVE_PERIODS.length - 1
-                        ? "border-turquoise bg-turquoise"
-                        : "border-turquoise bg-ink"
+                        ? "border-accent bg-accent"
+                        : "border-accent bg-ground"
                     }`}
                   />
-                  <p className="font-serif text-[1.125rem] text-parchment">{p.label}</p>
+                  <p className="font-serif text-[1.125rem] text-heading">{p.label}</p>
                   <p className="mt-1 text-[0.875rem]">{p.description}</p>
                 </li>
               ))}
@@ -154,7 +155,7 @@ export default function InitiativePage() {
           <div className="mt-14 grid gap-px overflow-hidden border border-rule bg-rule md:ml-[25%] md:grid-cols-2">
             {RESEARCH_SERIES.map((s, i) => (
               <article key={s.ref} className="bg-surface p-6 md:p-8" data-reveal style={{ "--i": i } as React.CSSProperties}>
-                <p className="meta text-turquoise">{s.ref}</p>
+                <p className="meta text-accent">{s.ref}</p>
                 <h3 className="mt-3 text-[1.5rem]">{s.title}</h3>
                 <p className="mt-3 text-[0.9375rem]">{s.description}</p>
               </article>
@@ -168,9 +169,9 @@ export default function InitiativePage() {
               dispatches={DISPATCHES.filter((d) => d.engine === "initiative")}
               emptyNote="The first monographs in the series are in preparation. Papers for consideration are received by the Mikaelson Institute for African Studies."
             />
-            <a href={ORG.instituteUrl} className="ink-link press mt-6 inline-block" rel="noopener">
-              Visit the Institute <span aria-hidden>↗</span>
-            </a>
+            <Button href={ORG.instituteUrl} variant="ghost" external className="mt-6">
+              Visit the Institute
+            </Button>
           </div>
         </section>
 
@@ -191,16 +192,16 @@ export default function InitiativePage() {
               ].map(([k, v]) => (
                 <div key={k} className="grid gap-1 border-b border-rule px-5 py-4 sm:grid-cols-12 sm:gap-6 md:px-6">
                   <dt className="meta sm:col-span-3">{k}</dt>
-                  <dd className="text-parchment sm:col-span-9">{v}</dd>
+                  <dd className="text-heading sm:col-span-9">{v}</dd>
                 </div>
               ))}
               <div className="grid gap-1 px-5 py-4 sm:grid-cols-12 sm:gap-6 md:px-6">
                 <dt className="meta sm:col-span-3">Concerns</dt>
                 <dd className="sm:col-span-9">
-                  <ul className="space-y-2 text-parchment">
+                  <ul className="space-y-2 text-heading">
                     {SCHOOL_CLUBS.focus.map((f) => (
                       <li key={f} className="flex gap-3">
-                        <span aria-hidden className="text-turquoise">—</span>
+                        <span aria-hidden className="text-accent">—</span>
                         {f}
                       </li>
                     ))}
@@ -209,23 +210,25 @@ export default function InitiativePage() {
               </div>
             </dl>
 
-            <div className="flex flex-col border border-turquoise/30 bg-deep-teal/25 p-6 md:col-span-5" data-reveal style={{ "--i": 1 } as React.CSSProperties}>
+            <div className="flex flex-col border border-accent/30 bg-band/25 p-6 md:col-span-5" data-reveal style={{ "--i": 1 } as React.CSSProperties}>
               <p className="meta">Frameworks in practice</p>
               <ul className="mt-4 space-y-4">
                 {clubFrameworks.map((f) => (
                   <li key={f.slug}>
                     <Link href={`/frameworks#${f.slug}`} className="group block">
                       <span className="meta">{f.ref}</span>
-                      <span className="block font-serif text-[1.25rem] text-parchment group-hover:text-turquoise">
+                      <span className="block font-serif text-[1.25rem] text-heading group-hover:text-accent">
                         {f.title}
                       </span>
                     </Link>
                   </li>
                 ))}
               </ul>
-              <a href={SCHOOL_CLUBS.href} className="ink-link press mt-auto self-start pt-8" rel="noopener">
-                The Mikaelson School Club site <span aria-hidden>↗</span>
-              </a>
+              <div className="mt-auto pt-8">
+                <Button href={SCHOOL_CLUBS.href} external>
+                  Visit the School Club
+                </Button>
+              </div>
             </div>
           </div>
         </section>

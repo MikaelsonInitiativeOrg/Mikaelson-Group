@@ -18,7 +18,7 @@ export function SectionHead({
   return (
     <header className="grid gap-4 border-t border-rule pt-6 md:grid-cols-12 md:gap-8" data-reveal>
       <p className="meta md:col-span-3">
-        <span className="text-turquoise">§ {number}</span>
+        <span className="text-accent">§ {number}</span>
         <span className="mx-2 text-rule-strong">/</span>
         {label}
       </p>

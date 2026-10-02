@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Button } from "@/components/ui/Button";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { FRAMEWORKS } from "@/lib/content";
 
@@ -17,7 +17,7 @@ export default function FrameworksPage() {
         kicker="Dossier"
         title={
           <>
-            Four frameworks for <em className="text-turquoise">human capability.</em>
+            Four frameworks for <em className="text-accent">human capability.</em>
           </>
         }
         lede="Each framework names one condition under which human capability develops, the question it answers, and the parts it is made of. They are read in sequence: each presupposes the one before it."
@@ -30,7 +30,7 @@ export default function FrameworksPage() {
                 <span className="meta">
                   {String(fw.order).padStart(2, "0")} · {fw.unitOfAnalysis}
                 </span>
-                <span className="mt-3 block font-serif text-[1.125rem] leading-snug text-parchment group-hover:text-turquoise md:text-[1.25rem]">
+                <span className="mt-3 block font-serif text-[1.125rem] leading-snug text-heading group-hover:text-accent md:text-[1.25rem]">
                   {fw.title}
                 </span>
               </a>
@@ -48,7 +48,7 @@ export default function FrameworksPage() {
               <ol className="space-y-3 border-l border-rule">
                 {FRAMEWORKS.map((fw) => (
                   <li key={fw.slug}>
-                    <a href={`#${fw.slug}`} className="-ml-px block border-l border-transparent pl-4 text-[0.9375rem] text-muted hover:border-turquoise hover:text-parchment">
+                    <a href={`#${fw.slug}`} className="-ml-px block border-l border-transparent pl-4 text-[0.9375rem] text-muted hover:border-accent hover:text-heading">
                       <span className="meta mr-2">{fw.ref.split("-")[1]}</span>
                       {fw.title}
                     </a>
@@ -65,7 +65,7 @@ export default function FrameworksPage() {
                 <article key={fw.slug} aria-labelledby={fw.slug} className="border-t border-rule pt-8">
                   <div className="flex flex-wrap items-baseline justify-between gap-3" data-reveal>
                     <p className="meta">
-                      <span className="text-turquoise">{fw.ref}</span>
+                      <span className="text-accent">{fw.ref}</span>
                       <span className="mx-2 text-rule-strong">/</span>
                       Framework {fw.order} of 4
                     </p>
@@ -80,13 +80,13 @@ export default function FrameworksPage() {
                     {fw.title}
                   </h2>
 
-                  <p className="prose-body mt-6 font-serif text-[1.3125rem] leading-[1.55] text-parchment" data-reveal>
+                  <p className="prose-body mt-6 font-serif text-[1.3125rem] leading-[1.55] text-heading" data-reveal>
                     {fw.definition}
                   </p>
 
-                  <blockquote className="mt-10 border-l-2 border-turquoise pl-5 md:pl-6" data-reveal>
+                  <blockquote className="mt-10 border-l-2 border-accent pl-5 md:pl-6" data-reveal>
                     <p className="meta">Governing question</p>
-                    <p className="mt-2 font-serif text-[1.5rem] italic leading-snug text-parchment md:text-[1.75rem]">
+                    <p className="mt-2 font-serif text-[1.5rem] italic leading-snug text-heading md:text-[1.75rem]">
                       {fw.governingQuestion}
                     </p>
                   </blockquote>
@@ -96,7 +96,7 @@ export default function FrameworksPage() {
                     {fw.components.map((c, i) => (
                       <div
                         key={c.name}
-                        className="bg-ink p-5 md:p-6"
+                        className="bg-ground p-5 md:p-6"
                         data-reveal
                         style={{ "--i": i } as React.CSSProperties}
                       >
@@ -104,7 +104,7 @@ export default function FrameworksPage() {
                           <span className="meta">
                             {fw.order}.{i + 1}
                           </span>
-                          <span className="font-serif text-[1.1875rem] text-parchment">{c.name}</span>
+                          <span className="font-serif text-[1.1875rem] text-heading">{c.name}</span>
                         </dt>
                         <dd className="mt-2 text-[0.9375rem]">{c.description}</dd>
                       </div>
@@ -135,9 +135,9 @@ export default function FrameworksPage() {
                 educators, researchers and institutions can examine, apply and criticise them. Questions and
                 correspondence about the frameworks are received by the editorial desk.
               </p>
-              <Link href="/contact" className="ink-link press mt-6 inline-block">
-                Write to the editorial desk <span aria-hidden>→</span>
-              </Link>
+              <Button href="/contact" arrow className="mt-8">
+                Write to the editorial desk
+              </Button>
             </section>
           </div>
         </div>

@@ -44,8 +44,8 @@ export function EngineDiagram() {
         <g className="stroke-rule-strong">{ticks(LEFT)}</g>
         <g className="stroke-rule-strong">{ticks(RIGHT)}</g>
 
-        <path d={LENS} className={`${styles.lens} fill-turquoise/12`} />
-        <path d={LENS} className={`${styles.lens} fill-none stroke-turquoise/50`} strokeWidth={1} strokeDasharray="3 4" />
+        <path d={LENS} className={`${styles.lens} fill-accent/12`} />
+        <path d={LENS} className={`${styles.lens} fill-none stroke-accent/50`} strokeWidth={1} strokeDasharray="3 4" />
 
         <circle
           cx={LEFT}
@@ -53,7 +53,7 @@ export function EngineDiagram() {
           r={R}
           pathLength={1}
           transform={`rotate(-90 ${LEFT} ${CY})`}
-          className={`${styles.ring} fill-none stroke-parchment`}
+          className={`${styles.ring} fill-none stroke-heading`}
           strokeWidth={1.5}
         />
         <circle
@@ -62,32 +62,32 @@ export function EngineDiagram() {
           r={R}
           pathLength={1}
           transform={`rotate(90 ${RIGHT} ${CY})`}
-          className={`${styles.ring} ${styles.ringTwo} fill-none stroke-turquoise`}
+          className={`${styles.ring} ${styles.ringTwo} fill-none stroke-accent`}
           strokeWidth={1.5}
         />
 
         <g className={`${styles.mark} font-serif`} textAnchor="middle">
-          <text x={LEFT - 52} y={CY + 12} className="fill-parchment text-[34px] italic">
+          <text x={LEFT - 52} y={CY + 12} className="fill-heading text-[34px] italic">
             I
           </text>
-          <text x={RIGHT + 52} y={CY + 12} className="fill-turquoise text-[34px] italic">
+          <text x={RIGHT + 52} y={CY + 12} className="fill-accent text-[34px] italic">
             II
           </text>
-          <circle cx={280} cy={CY} r={3} className="fill-turquoise" />
+          <circle cx={280} cy={CY} r={3} className="fill-accent" />
         </g>
       </svg>
 
       <figcaption className="mt-6 grid grid-cols-3 gap-3 border-t border-rule pt-4">
         <div className={styles.legend} style={{ "--i": 0 } as React.CSSProperties}>
-          <p className="meta text-parchment">I · Mikaelson Group</p>
+          <p className="meta text-heading">I · Mikaelson Group</p>
           <p className="meta mt-1">Articulates</p>
         </div>
         <div className={`${styles.legend} text-center`} style={{ "--i": 1 } as React.CSSProperties}>
-          <p className="meta text-turquoise">Capability</p>
+          <p className="meta text-accent">Capability</p>
           <p className="meta mt-1">The overlap</p>
         </div>
         <div className={`${styles.legend} text-right`} style={{ "--i": 2 } as React.CSSProperties}>
-          <p className="meta text-parchment">II · The Initiative</p>
+          <p className="meta text-heading">II · The Initiative</p>
           <p className="meta mt-1">Tests in public</p>
         </div>
       </figcaption>

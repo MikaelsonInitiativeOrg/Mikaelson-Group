@@ -23,7 +23,7 @@ export function Navbar() {
   const isCurrent = (href: string) => !href.includes("#") && pathname === href;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-rule bg-ink/85 backdrop-blur-md supports-[backdrop-filter]:bg-ink/70">
+    <header className="sticky top-0 z-40 border-b border-rule bg-ground/85 backdrop-blur-md supports-[backdrop-filter]:bg-ground/70">
       <div className="mx-auto flex h-16 max-w-[1240px] items-center justify-between px-4 md:h-[72px] md:px-8">
         <Link href="/" className="press -mx-1 rounded px-1 py-1" aria-label="Mikaelson Group, home">
           <Logo size={30} />
@@ -39,12 +39,12 @@ export function Navbar() {
                     href={item.href}
                     aria-current={current ? "page" : undefined}
                     className={`press relative block rounded px-3 py-2 text-[0.9375rem] ${
-                      current ? "text-parchment" : "text-muted hover:text-parchment"
+                      current ? "text-heading" : "text-muted hover:text-heading"
                     }`}
                   >
                     {item.label}
                     {current && (
-                      <span aria-hidden className="absolute inset-x-3 -bottom-[13px] h-px bg-turquoise md:-bottom-[17px]" />
+                      <span aria-hidden className="absolute inset-x-3 -bottom-[13px] h-px bg-accent md:-bottom-[17px]" />
                     )}
                   </Link>
                 </li>
@@ -63,12 +63,12 @@ export function Navbar() {
         >
           <span aria-hidden className="relative block h-3 w-5">
             <span
-              className={`absolute left-0 top-0 h-px w-5 bg-parchment transition-transform duration-200 ease-out ${
+              className={`absolute left-0 top-0 h-px w-5 bg-heading transition-transform duration-200 ease-out ${
                 open ? "translate-y-[6px] rotate-45" : ""
               }`}
             />
             <span
-              className={`absolute bottom-0 left-0 h-px w-5 bg-parchment transition-transform duration-200 ease-out ${
+              className={`absolute bottom-0 left-0 h-px w-5 bg-heading transition-transform duration-200 ease-out ${
                 open ? "-translate-y-[5px] -rotate-45" : ""
               }`}
             />
@@ -90,7 +90,7 @@ export function Navbar() {
                   href={item.href}
                   onClick={() => setOpen(false)}
                   aria-current={isCurrent(item.href) ? "page" : undefined}
-                  className="flex items-center justify-between py-4 font-serif text-[1.375rem] text-parchment"
+                  className="flex items-center justify-between py-4 font-serif text-[1.375rem] text-heading"
                 >
                   {item.label}
                   <span aria-hidden className="meta">→</span>
