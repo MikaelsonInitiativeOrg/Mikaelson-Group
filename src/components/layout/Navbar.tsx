@@ -29,7 +29,7 @@ export function Navbar() {
           <Logo size={30} />
         </Link>
 
-        <nav aria-label="Primary" className="hidden md:block">
+        <nav aria-label="Primary" className="hidden lg:block">
           <ul className="flex items-center gap-1">
             {NAV.map((item) => {
               const current = isCurrent(item.href);
@@ -38,7 +38,7 @@ export function Navbar() {
                   <Link
                     href={item.href}
                     aria-current={current ? "page" : undefined}
-                    className={`press relative block rounded px-3 py-2 text-[0.9375rem] ${
+                    className={`press relative block whitespace-nowrap rounded px-3 py-2 text-[0.9375rem] ${
                       current ? "text-heading" : "text-muted hover:text-heading"
                     }`}
                   >
@@ -55,7 +55,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="press -mr-2 flex h-11 w-11 items-center justify-center rounded md:hidden"
+          className="press -mr-2 flex h-11 w-11 items-center justify-center rounded lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -78,7 +78,7 @@ export function Navbar() {
 
       <div
         id="mobile-nav"
-        className={`grid border-rule transition-[grid-template-rows] duration-300 ease-[var(--ease-out-strong)] md:hidden ${
+        className={`grid border-rule transition-[grid-template-rows] duration-300 ease-[var(--ease-out-strong)] lg:hidden ${
           open ? "grid-rows-[1fr] border-t" : "grid-rows-[0fr]"
         }`}
       >

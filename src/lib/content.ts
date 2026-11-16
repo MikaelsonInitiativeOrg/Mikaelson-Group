@@ -24,6 +24,8 @@ export const ORG = {
   instituteUrl: "https://institute.mikaelsoninitiative.org",
   clubsUrl: "https://club.mikaelsoninitiative.org",
   initiativeUrl: "https://www.mikaelsoninitiative.org",
+  // The conference site's current address. Change it here if it moves to its own domain.
+  conferenceUrl: "https://mikaelson-research-conference-2027.vercel.app",
 } as const;
 
 export const REGISTRATION_LABEL = ORG.registrationNumber ?? "IT — to be published";
@@ -293,6 +295,51 @@ export const DESKS: CorrespondenceDesk[] = [
   },
 ];
 
+/*
+  Mikaelson Institute Research Conference 2027. These facts mirror the
+  conference's own site (ORG.conferenceUrl), which is the source of record.
+  Dates and venue have not been set, so they are marked pending.
+*/
+export const CONFERENCE = {
+  name: "Mikaelson Institute Research Conference 2027",
+  host: "Mikaelson Institute for African Studies",
+  abstractWordLimit: 300,
+  record: [
+    { label: "Convened by", value: "Mikaelson Institute for African Studies" },
+    { label: "Year", value: "2027" },
+    { label: "Dates", value: "To be announced", pending: true },
+    { label: "Venue", value: "To be announced", pending: true },
+    { label: "Call for research", value: "Open. Abstracts of up to 300 words are received on the conference site." },
+  ] as RecordEntry[],
+  capacities: [
+    "Researchers",
+    "Scientists",
+    "Students",
+    "Doctors and health workers",
+    "Engineers",
+    "Religious leaders",
+    "Politicians and policymakers",
+    "Independent contributors",
+  ],
+  /** The first five are the Institute's own research areas; the last two were added for the conference. */
+  tracks: [
+    { title: "History & Decolonization", summary: "The continent’s past read as one continuous record." },
+    { title: "Society, Politics & Economics", summary: "How people are governed, how they earn, and who decides." },
+    { title: "Arts, Literature & Culture", summary: "What people make, perform, write and pass on." },
+    { title: "Religion, Philosophy & Lived Experience", summary: "Belief, ethics and the questions people live by." },
+    { title: "STEM & Metaphysics", summary: "Science and mathematics, and the ideas that sit beneath them." },
+    { title: "Health & Medicine", summary: "Evidence from clinics, wards, laboratories and communities." },
+    { title: "Engineering & Applied Technology", summary: "Things built to work, and what was learned building them." },
+  ],
+  formats: [
+    { title: "Full paper", body: "A complete study, presented in a session with questions from the room." },
+    { title: "Work in progress", body: "Early findings you want tested before you finish writing." },
+    { title: "Poster", body: "One board, one idea, and conversations with whoever stops." },
+    { title: "Panel", body: "Three or four people from different callings on a single question." },
+    { title: "Practice or policy report", body: "What you did in the clinic, the field or in office, and what it showed." },
+  ],
+};
+
 export function mailto(desk: CorrespondenceDesk) {
   return `mailto:${desk.email}?subject=${encodeURIComponent(`[${desk.subjectPrefix}] `)}`;
 }
@@ -301,6 +348,7 @@ export const NAV = [
   { href: "/frameworks", label: "Frameworks" },
   { href: "/initiative", label: "The Initiative" },
   { href: "/initiative#archive", label: "Research" },
+  { href: "/conference", label: "Conference" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Correspondence" },
 ] as const;

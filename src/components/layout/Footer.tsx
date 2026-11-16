@@ -18,6 +18,7 @@ const COLUMNS = [
       { href: "/initiative#governance", label: "Governance" },
       { href: "/initiative#archive", label: "Research archive" },
       { href: "/initiative#clubs", label: "School clubs" },
+      { href: "/conference", label: "Research Conference 2027" },
     ],
   },
   {
