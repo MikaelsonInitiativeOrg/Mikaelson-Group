@@ -25,7 +25,7 @@ export const ORG = {
   clubsUrl: "https://club.mikaelsoninitiative.org",
   initiativeUrl: "https://www.mikaelsoninitiative.org",
   // The conference site's current address. Change it here if it moves to its own domain.
-  conferenceUrl: "https://mikaelson-research-conference-2027.vercel.app",
+  conferenceUrl: "https://conference.mikaelsongroup.com",
 } as const;
 
 export const REGISTRATION_LABEL = ORG.registrationNumber ?? "IT — to be published";
